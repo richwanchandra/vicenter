@@ -1,0 +1,242 @@
+/* 1. Global Styles & Typography */
+:root {
+    --vilo-blue: #1d4e89; 
+    --vilo-dark: #f8f9fa; 
+    --vilo-accent: #d35400; 
+    --vilo-gold: #9d7d4c;
+    --vilo-text: #333333;
+    --vilo-bg-light: #fcfaf8;
+    --vilo-font: "Avenir Next", "Avenir", "Montserrat", sans-serif;
+}
+
+body {
+    font-family: var(--vilo-font);
+    color: var(--vilo-text);
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: var(--vilo-font);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+/* 2. Navbar Styling */
+.navbar {
+    padding: 1.5rem 0;
+    transition: all 0.4s ease;
+    background-color: transparent !important;
+    z-index: 1050;
+}
+
+.navbar.nav-scrolled {
+    padding: 0.8rem 0;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    height: 45px;
+}
+
+.nav-link {
+    font-family: var(--vilo-font);
+    font-weight: 500;
+    color: #fff !important;
+    padding: 0.5rem 1.2rem !important;
+    transition: 0.3s;
+}
+
+.navbar.nav-scrolled .nav-link {
+    color: #333 !important;
+}
+
+.navbar.nav-scrolled .navbar-brand {
+    color: var(--vilo-blue) !important;
+}
+
+/* 3. Mega Menu Container & Logic */
+.dropdown-menu.mega-menu {
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    width: 100vw;
+    left: 0;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #eee;
+    margin-top: 0;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    padding: 0;
+}
+
+.nav-item.dropdown .nav-link {
+    cursor: pointer;
+}
+
+/* Pastikan menu tidak muncul otomatis saat hover (opsional, jika ingin murni klik) */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: none; 
+    }
+    .nav-item.dropdown.show .dropdown-menu {
+        display: block !important;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+.nav-item.dropdown.show .dropdown-menu.mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.mega-sidebar {
+    background-color: #fff;
+    padding: 40px 0 40px 10%;
+    border-right: 1px solid #f0f0f0;
+}
+
+.mega-content {
+    background-color: #fafafa;
+    padding: 40px 10% 40px 40px;
+}
+
+.mega-menu .nav-link {
+    text-align: left;
+    border-radius: 0;
+    color: #888 !important;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 15px 20px !important;
+}
+
+.mega-menu .nav-link.active {
+    background: transparent !important;
+    color: var(--vilo-blue) !important;
+    font-weight: 600;
+}
+
+.mega-menu .nav-link.active::after {
+    content: '→';
+    position: absolute;
+    right: 10px;
+}
+
+.sub-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.sub-list-grid a {
+    font-family: var(--vilo-font);
+    font-size: 0.95rem;
+    color: #666;
+    padding: 8px 0;
+    display: block;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sub-list-grid a:hover {
+    color: var(--vilo-blue);
+    padding-left: 5px;
+}
+
+/* 4. Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/vilo1.avif') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.btn-vilo-primary {
+    background-color: var(--vilo-accent);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+}
+
+/* 5. Stats & Article Slider */
+.vilo-stats {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.stat-number {
+    color: var(--vilo-gold);
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.article-slide {
+    padding: 80px 0;
+}
+
+.article-slide__img img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+/* 6. Footer Modern */
+.footer-modern {
+    background-color: #f8f9fa; /* Warna terang */
+    padding: 60px 0 40px;
+    border-top: 1px solid #eee;
+}
+
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    /* Ganti background menjadi warna biru Vilo agar kontras */
+    background: var(--vilo-blue); 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    /* Warna ikon di dalam menjadi putih */
+    color: #fff !important; 
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(29, 78, 137, 0.2);
+}
+
+.social-icons a:hover {
+    /* Saat di-hover berubah menjadi warna Gold */
+    background: var(--vilo-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(157, 125, 76, 0.3);
+    color: #fff !important;
+}
+
+/* Memastikan logo di footer tetap terlihat */
+.filter-white {
+    /* Jika background footer terang, kita hapus filter white agar logo asli terlihat */
+    filter: none; 
+}
